@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="imagens/imagem/favicon.ico">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/imagem/imagem.css">
+    <script src="script.js"></script>
+    <link rel="manifest" href="manifest.json">
+    <title>Imagem prompt</title>
+</head>
+<body>
+        <div class="container">
+        <div onclick="copiarDica('artistica');">
+            Artística
+            <span class="tooltip">
+                <img class="icon topo" src="imagens/imagem/imagem-branco.png" alt="Catraca">
+            </span>
+        </div>
+        <div onclick="window.open('https://luppi15.github.io/Capsule-Corp/', '_blank');">
+            Capsule Corp
+            <span class="tooltip">
+                <img class="icon topo" src="imagens/imagem/imagem-branco.png" alt="Catraca">
+            </span>
+        </div>
+        <div onclick="window.open('https://gemini.google.com/gem/a0e19431e814', '_blank');">
+            descrição
+            <span class="tooltip">
+                <img class="icon topo" src="imagens/imagem/imagem-branco.png" alt="Catraca">
+            </span>
+        </div>
+        <div onclick="window.open('https://labs.google/fx/pt/tools/flow/project/a8889414-d651-45d3-9986-dd5a51630e0e', '_blank');">
+            Flow
+            <span class="tooltip">
+                <img class="icon topo" src="imagens/imagem/imagem-branco.png" alt="Catraca">
+            </span>
+        </div>
+        <div onclick="window.open('https://chatgpt.com/g/g-693f72d15dc08191872dd83321f34707-prompt-imagens-melhor-de-todos', '_blank');">
+            Imagens
+            <span class="tooltip">
+                <img class="icon topo" src="imagens/imagem/imagem-branco.png" alt="Catraca">
+            </span>
+        </div>
+            
+    </div>
+
+    <button class="dark-toggle" onclick="toggleDark()" title="Modo escuro">
+        <svg id="dark-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <script src="app.js"></script>
+    <script>
+        (function () {
+            if (localStorage.getItem('dark') === '1') {
+                document.body.classList.add('dark');
+                updateIcon(true);
+            }
+        })();
+
+        function toggleDark() {
+            const isDark = document.body.classList.toggle('dark');
+            localStorage.setItem('dark', isDark ? '1' : '0');
+            updateIcon(isDark);
+        }
+
+        function updateIcon(isDark) {
+            const icon = document.getElementById('dark-icon');
+            if (isDark) {
+                icon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+            } else {
+                icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+            }
+        }
+    </script>
+</body>
+</html>
